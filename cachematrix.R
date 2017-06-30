@@ -23,10 +23,13 @@ cacheSolve <- function(x, ...) {
     message("getting cached inverse matrix")
     return(m)
   }
+  ##calculate only if it was not calculated before
+  else {
   data <- x$get()
   m <- solve(data, ...)
   x$setIM(m)
   m
+    }
 }
 
 ##Check functions using multiplication of matrices
